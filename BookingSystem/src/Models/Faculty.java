@@ -7,7 +7,7 @@ public class Faculty implements  User {
 //    private ParkingSpot parkingSpot;
     private String username;
 
-    public Student(String name, String email, String password) {
+    public Faculty(String name, String email, String password) {
         this.username = name;
         this.email = email;
         this.password = password;
