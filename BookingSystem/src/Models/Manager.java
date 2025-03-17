@@ -74,7 +74,7 @@ public class Manager {
     public void addParkinglot(ParkingLot parkinglot){
         if (parkinglot != null){
             parkinglot.enable();
-            System.out.println("Parking Lot" + parkinglot.getLotId() + "is enabled");
+            System.out.println("Parking Lot " + parkinglot.getLotId() + "is enabled");
         }
         else{
             System.out.println("Parking Lot is not valid");
@@ -93,7 +93,7 @@ public class Manager {
     public void disableParkinglot(ParkingLot parkinglot){
         if (parkinglot != null){
             parkinglot.disable();
-            System.out.println("Parking Lot" + parkinglot.getLotId() + "is disabled");
+            System.out.println("Parking Lot " + parkinglot.getLotId() + " is disabled");
         }
         else{
             System.out.println("Parking Lot is not valid");
@@ -113,7 +113,7 @@ public class Manager {
 
         if(parkingspace.getId() != null){
             parkingspace.disable();
-            System.out.println("Parking space" + parkingspace.getId() + "is disabled");
+            System.out.println("Parking space " + parkingspace.getId() + " is disabled");
             parkingspaces--;
         }
         else{
@@ -134,7 +134,7 @@ public class Manager {
         if (parkingspaces < 100) {
             parkingspace.enable();
             parkingspaces++;
-            System.out.println("parking spot" + parkingspace.getId() + "is enabled");
+            System.out.println("parking spot " + parkingspace.getId() + " is enabled");
         }
     }
 
