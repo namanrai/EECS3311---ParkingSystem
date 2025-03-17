@@ -1,5 +1,6 @@
 package Main;
 
+import Database.Database;
 import DesignPatterns.*;
 import Models.Manager;
 import Models.ParkingLot;
@@ -15,5 +16,8 @@ public class Main {
         ParkingLot Lot1 = new ParkingLot("1");
         ParkingSpace space = Lot1.getSpaces().get(1);
         manager.disableParkingspace(space);
+        Database database = Database.getInstance();
+        database.addAccount(ahmad);
+        System.out.println(database.getUsers().get(0).getUsername());
     }
 }
