@@ -34,9 +34,8 @@ public class SuperManager {
      @return ManagerAccountfactory.createAccount();
       */
 
-    public ManagerAccount createManagerAccount(String role){
-        ManagerAccount ManagerAccount;
-        return ManagerAccount = new ManagerAccount();
+    public Manager createManagerAccount(){
+        return new Manager();
     }
 
 

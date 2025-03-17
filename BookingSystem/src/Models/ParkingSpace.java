@@ -23,15 +23,19 @@ public class ParkingSpace {
     public String getId() {
         return id;
     }
+
     public String getLocation() {
         return location;
     }
+
     public boolean isOccupied() {
         return isOccupied;
     }
+
     public String getLicensePlate() {
         return licensePlate;
     }
+
     public boolean isDisabled() {
         return isDisabled;
     }

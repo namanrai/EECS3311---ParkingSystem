@@ -9,7 +9,7 @@ import java.util.Random;
  */
 
 
-public class ManagerAccount {
+public class Manager {
     public String username;
     public String password;
     private static final String userChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
@@ -20,9 +20,9 @@ public class ManagerAccount {
      * Constructor for the class
      */
 
-    public ManagerAccount(){
-        this.username = gernerateUsername();
-        this.password = gernerateUserPassword();
+    public Manager(){
+        this.username = generateUsername();
+        this.password = generateUserPassword();
 
     }
 
@@ -33,7 +33,7 @@ public class ManagerAccount {
      * @return generatedPassword.toString();
      *
      */
-    public String gernerateUserPassword(){
+    public String generateUserPassword(){
         Random randomgen = new Random();
         StringBuilder generatedPassword = new StringBuilder();
 
@@ -45,12 +45,12 @@ public class ManagerAccount {
     }
 
     /**
-     *  This method is used for generating the String user password,
+     *  This method is used for generating the String user username,
      *  satisfying the 2nd user requirement.
      * @return generatedUser.toString();
      */
 
-    public String gernerateUsername(){
+    public String generateUsername(){
         int length = userChar.length();
 
         Random randomgen = new Random();

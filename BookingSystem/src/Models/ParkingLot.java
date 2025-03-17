@@ -21,9 +21,11 @@ public class ParkingLot {
     public String getLotId() {
         return lotId;
     }
+
     public List<ParkingSpace> getSpaces() {
         return spaces;
     }
+
     public boolean isDisabled() {
         return isDisabled;
     }
@@ -31,6 +33,7 @@ public class ParkingLot {
     public void disable() {
         this.isDisabled = true;
     }
+
     public void enable() {
         this.isDisabled = false;
     }
