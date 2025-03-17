@@ -33,7 +33,7 @@ public class Manager {
      * @return generatedPassword.toString();
      *
      */
-    public String generateUserPassword(){
+    private String generateUserPassword(){
         Random randomgen = new Random();
         StringBuilder generatedPassword = new StringBuilder();
 
@@ -50,7 +50,7 @@ public class Manager {
      * @return generatedUser.toString();
      */
 
-    public String generateUsername(){
+    private String generateUsername(){
         int length = userChar.length();
 
         Random randomgen = new Random();

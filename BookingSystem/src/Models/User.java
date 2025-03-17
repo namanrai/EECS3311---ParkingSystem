@@ -3,8 +3,8 @@ package Models;
 public interface User {
     String getEmail();
     String getPassword();
-    //String getLicensePlate();
-    //ParkingSpot getParkingSpot();
+    String getLicensePlate();
+    ParkingSpace getParkingSpace();
     String getUsername();
 
     //Card paymentInformation(String input);

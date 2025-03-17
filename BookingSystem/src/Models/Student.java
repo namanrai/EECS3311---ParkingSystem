@@ -3,8 +3,8 @@ package Models;
 public class Student implements  User {
     private String email;
     private String password;
-//    private String licensePlate;
-//    private ParkingSpot parkingSpot;
+    private String licensePlate;
+    private ParkingSpace parkingSpace;
     private String username;
 
     public Student(String name, String email, String password) {
@@ -23,11 +23,11 @@ public class Student implements  User {
     @Override
     public String getPassword() { return password; }
 
-//    @Override
-//    public String getLicensePlate() { return licensePlate; }
+    @Override
+    public String getLicensePlate() { return licensePlate; }
 
-//    @Override
-//    public ParkingSpot getParkingSpot() { return parkingSpot; }
+    @Override
+    public ParkingSpace getParkingSpace() { return parkingSpace; }
 
     @Override
     public String getUsername() { return username; }
