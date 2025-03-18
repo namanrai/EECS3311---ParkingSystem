@@ -1,5 +1,8 @@
 package Models;
 
+import Database.Database;
+import HelperFunctions.*;
+
 public class Staff implements  User {
     private String email;
     private String password;
@@ -7,10 +10,11 @@ public class Staff implements  User {
     private ParkingSpace parkingSpace;
     private String username;
 
-    public Staff(String name, String email, String password) {
+    public Staff(String name, String email, String password, String licensePlate) {
         this.username = name;
         this.email = email;
         this.password = password;
+        this.licensePlate = licensePlate;
     }
 
     public double getParkingRate() {
@@ -38,8 +42,24 @@ public class Staff implements  User {
 //    }
 
     @Override
-    public boolean registerAccount() {
-        // Implement account registration logic
-        return true;
+    public boolean registerAccount(String username, String password) {
+        Database database = Database.getInstance();
+        boolean exists = false;
+        for(User user: database.getUsers()) {
+            if (user.getUsername().equals(username)) {
+                exists = true;
+                System.out.println("Username already exists");
+            }
+        }
+        if (PasswordValidator.isStrongPassword(password)) {
+            System.out.println("Password not strong");
+            return false;
+        }
+        if (!exists) {
+            database.addAccount(this);
+            System.out.println("Account Registration Successful");
+            return true;
+        }
+        return false;
     }
 }
