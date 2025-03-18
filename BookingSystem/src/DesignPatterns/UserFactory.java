@@ -3,12 +3,12 @@ package DesignPatterns;
 import Models.*;
 
 public class UserFactory {
-    public static User createUser(String type, String name, String email, String password) {
+    public static User createUser(String type, String name, String email, String password, String licensePlate) {
         return switch (type.toLowerCase()) {
-            case "student" -> new Student(name, email, password);
-            case "faculty" -> new Faculty(name, email, password);
-            case "staff" -> new Staff(name, email, password);
-            case "visitor" -> new Visitor(name, email, password);
+            case "student" -> new Student(name, email, password, licensePlate);
+            case "faculty" -> new Faculty(name, email, password, licensePlate);
+            case "staff" -> new Staff(name, email, password, licensePlate);
+            case "visitor" -> new Visitor(name, email, password, licensePlate);
             default -> throw new IllegalArgumentException("Invalid user type");
         };
     }

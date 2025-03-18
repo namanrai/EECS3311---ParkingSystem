@@ -8,5 +8,5 @@ public interface User {
     String getUsername();
 
     //Card paymentInformation(String input);
-    boolean registerAccount();
+    boolean registerAccount(String username, String password);
 }
