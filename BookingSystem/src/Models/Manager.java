@@ -1,4 +1,6 @@
 package Models;
+import DesignPatterns.ParkingProxy;
+
 import java.util.Random;
 
 /**
@@ -10,20 +12,21 @@ import java.util.Random;
 
 
 public class Manager {
+    private final ParkingProxy access;
     public String username;
     public String password;
     private static final String userChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-    public static int parkingspaces = 0;
+//    public static int parkingspaces = 0;
 
 
     /**
      * Constructor for the class
      */
 
-    public Manager(){
+    public Manager(ParkingProxy access) {
         this.username = generateUsername();
         this.password = generateUserPassword();
-
+        this.access = access; // Initialize ParkingProxy
     }
 
     /**
@@ -66,76 +69,70 @@ public class Manager {
 
     /**
      *  This method is used for adding a parking lot when required.
-     * @param parkinglot m
+     *
      *
      *
      */
 
-    public void addParkinglot(ParkingLot parkinglot){
-        if (parkinglot != null){
-            parkinglot.enable();
-            System.out.println("Parking Lot " + parkinglot.getLotId() + "is enabled");
-        }
-        else{
-            System.out.println("Parking Lot is not valid");
-        }
+    public void addParkingLot(String lotID) {
+        access.addParkingLot(lotID);
+    }
+
+    /**
+     *  This method is used for removing a parking lot when required.
+     *
+     *
+     *
+     */
+
+    public void removeParkingLot(String lotID) {
+        access.removeParkingLot(lotID);
+    }
 
 
+    /**
+     *  This method is responsible for enabling a parking lot
+     *  when needed by a manager.
+     *
+     *
+     */
+
+
+    public void enableParkinglot(String lotID){
+        access.toggleParkingLot(lotID, true);
     }
 
     /**
      *  This method is responsible for disabling a parking lot
      *  when needed by a manager.
-     * @param parkinglot m
+     *
      *
      */
 
-    public void disableParkinglot(ParkingLot parkinglot){
-        if (parkinglot != null){
-            parkinglot.disable();
-            System.out.println("Parking Lot " + parkinglot.getLotId() + " is disabled");
-        }
-        else{
-            System.out.println("Parking Lot is not valid");
-        }
-
+    public void disableParkinglot(String lotID){
+        access.toggleParkingLot(lotID, false);
     }
 
     /**
      *  This method is responsible for disabling a parking sapce
      *  when needed by a manager and reduces the count of that parking space by 1
-     * @param parkingspace m
+     *
      *
      */
 
-    public void disableParkingspace(ParkingSpace parkingspace){
-
-
-        if(parkingspace.getId() != null){
-            parkingspace.disable();
-            System.out.println("Parking space " + parkingspace.getId() + " is disabled");
-            parkingspaces--;
-        }
-        else{
-            System.out.println("Parking space not found");
-        }
-
+    public void disableParkingspace(String LotID, String SpaceID){
+        access.toggleParkingSpace(LotID, SpaceID, false);
     }
 
     /**
      *  This method is responsible for disabling a parking sapce
      *  when needed by a manager and increases the count of that parking space by 1
-     * @param parkingspace m
+     *
      *
      */
 
-    public void enableParkingspace(ParkingSpace parkingspace) {
-
-        if (parkingspaces < 100) {
-            parkingspace.enable();
-            parkingspaces++;
-            System.out.println("parking spot " + parkingspace.getId() + " is enabled");
-        }
+    public void enableParkingspace(String LotID, String SpaceID) {
+        access.toggleParkingSpace(LotID, SpaceID, true);
     }
 
 

@@ -1,9 +1,11 @@
 package Models;
-
+import DesignPatterns.ParkingProxy;
 /*
 This method uses the singleton patten, to generate just one instance
 of the SuperManager account type.
  */
+
+
 
 
 public class SuperManager {
@@ -34,8 +36,11 @@ public class SuperManager {
      @return ManagerAccountfactory.createAccount();
       */
 
-    public Manager createManagerAccount(){
-        return new Manager();
+    public Manager createManagerAccount(boolean isManager) {
+        // Create a ParkingProxy instance for the new Manager
+        ParkingProxy parkingProxy = new ParkingProxy(isManager);
+        // Create and return a new Manager with the ParkingProxy
+        return new Manager(parkingProxy);
     }
 
 
